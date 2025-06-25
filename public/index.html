@@ -5457,9 +5457,9 @@
         display: none !important;
       }
 
-      #SECTION2>.ladi-section-background {
+      /* #SECTION2>.ladi-section-background {
         background-image: url("./ladi/kv-vay-nhanh-lai-canh-tranh-1000x310-02-1-20240219040248-06k2t.png");
-      }
+      } */
 
       #GROUP180,
       #GROUP105,
@@ -7028,7 +7028,14 @@
       </div>
     </div>
     <div id="SECTION2" class='ladi-section'>
-      <div class='ladi-section-background'></div>
+          <div class='ladi-section-background'>
+        <div class="slider-wrapper">
+            <div class="slider">
+                <div class="slide" style="background-image: url('./ladi/vay4buoc.gif');"></div>
+                <div class="slide" style="background-image: url('./ladi/kv-vay-nhanh-lai-canh-tranh-1000x310-1-20240318111907-iu7ag.png');"></div>
+            </div>
+        </div>
+    </div>
       <div class="ladi-container">
         <div data-action="true" id="GROUP180" class='ladi-element'>
           <div class='ladi-group'>
@@ -9907,6 +9914,52 @@
       }
     }
   </style>
+
+  <style>
+#SECTION2 .ladi-section-background {
+    overflow: hidden;
+}
+
+.slider-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  animation: slide-two 20s infinite;
+}
+
+.slide {
+  width: 50%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+
+
+@keyframes slide-two {
+  0%   { transform: translateX(0%); }
+  45%  { transform: translateX(0%); }
+  50%  { transform: translateX(-50%); }
+  95%  { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+/* Responsive cho mobile */
+@media (max-width: 767px) {
+    #SECTION2 {
+        height: 677px !important; /* Đảm bảo chiều cao section trên mobile */
+    }
+}
+</style>
+
 </body>
 
 </html>
