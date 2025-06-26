@@ -5573,9 +5573,9 @@
         height: 385.554px;
       }
 
-      #SECTION12>.ladi-section-background {
-        background-image: url("./ladi/1-20240318105903-ybtkr.png");
-      }
+      /*#SECTION12>.ladi-section-background {*/
+      /*  background-image: url("./ladi/1-20240318105903-ybtkr.png");*/
+      /*}*/
 
       #SECTION13 {
         height: 656.306px;
@@ -7307,8 +7307,21 @@
       </div>
     </div>
     <div id="SECTION12" class='ladi-section'>
-      <div class='ladi-section-background'></div>
-      <div class="ladi-container"></div>
+      <div class='ladi-section-background'>
+        <div class="slider-wrapper">
+          <div class="slider">
+            <!--              <div class="slide slide-gif" style="background-image: url('./ladi/vay4buoc.gif');"></div>-->
+            <!--              <div class="slide" style="background-image: url('./ladi/kv-vay-nhanh-lai-canh-tranh-1000x310-1-20240318111907-iu7ag.png');"></div>-->
+            <div class="slide slide-gif"></div>
+            <div class="slide slide-static"></div>
+            <!--              <div class="slide slide-gif" style="background-image: url('./ladi/vay4buoc.gif');"></div>-->
+          </div>
+        </div>
+      </div>
+      <div class="ladi-container">
+        <div class="slider-arrow left"></div>
+        <div class="slider-arrow right"></div>
+      </div>
     </div>
     <div id="SECTION13" class='ladi-section'>
       <div class='ladi-section-background'></div>
@@ -8890,6 +8903,9 @@
       <div class="news-title-underline"></div>
     </div>
 
+    <div class="news-slider-arrow news-arrow-left"></div>
+    <div class="news-slider-arrow news-arrow-right"></div>
+
     <div class="news-slider-container">
       <div class="news-slider-content">
         <a href="https://vnexpress.net/lotte-finance-huong-den-nhom-khach-hang-cong-chuc-vien-chuc-4749870.html" target="_blank" class="news-card">
@@ -9812,6 +9828,9 @@
 <div id="fixed-register-button">
   <img src="./ladi/fixed-regis-button-desktop.png" alt="Đăng ký vay ngay">
 </div>
+<div id="fixed-mobile-cta-wrapper">
+  <button id="fixed-mobile-cta">Đăng ký ngay</button>
+</div>
   <div id="loading"></div>
   <!--[if lt IE 9]><script src="./assets/js/dist/html5shiv.min.js"></script><script src="./assets/js/dist/respond.min.js"></script><![endif]-->
   <style type="text/css">
@@ -10251,17 +10270,6 @@
   }
 
 
-  /* --- Ảnh nền cho Mobile (màn hình nhỏ hơn hoặc bằng 767px) --- */
-  @media (max-width: 767px) {
-    /* Ghi đè ảnh GIF cho màn hình mobile */
-    .slide-gif {
-      background-image: url('./ladi/vay4buocmb.gif');
-    }
-
-    /* Nếu ảnh tĩnh cũng cần thay đổi cho mobile, bạn sẽ thêm nó ở đây */
-    /* .slide-static { background-image: url('./path/to/mobile-static-image.png'); } */
-  }
-
   .slider-wrapper {
     width: 100%;
     height: 100%;
@@ -10273,7 +10281,7 @@
     display: flex;
     width: 300%;
     height: 100%;
-    animation: slide-with-pauses 30s infinite;
+    /*animation: slide-with-pauses 30s infinite;*/
   }
 
   .slide {
@@ -10290,53 +10298,73 @@
     background-position: left -280px center;
   }
 
-  @keyframes slide-with-pauses {
-    /*0% {*/
-    /*  transform: translateX(0%);*/
-    /*}*/
-    /*45% {*/
-    /*  transform: translateX(0%);*/
-    /*}*/
+  @media (min-width: 768px) {
+    .slider-arrow.left {
+      left: -220px;
+      background-image: url("./ladi/slider-arrow-2.png");
+    }
 
-    /*50% {*/
-    /*  transform: translateX(-33.333%);*/
-    /*}*/
-    /*95% {*/
-    /*  transform: translateX(-33.333%);*/
-    /*}*/
+    .slider-arrow.right {
+      right: -220px;
+      background-image: url("./ladi/slider-arrow.png");
+    }
 
-    /*100% {*/
-    /*  transform: translateX(-66.666%);*/
-    /*}*/
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 33.54px;
+      height: 80px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      cursor: pointer;
+      z-index: 10;
+    }
   }
+
+
+
+
+
+
+
+  /*@keyframes slide-with-pauses {*/
+  /*  0% {*/
+  /*    transform: translateX(0%);*/
+  /*  }*/
+  /*  45% {*/
+  /*    transform: translateX(0%);*/
+  /*  }*/
+
+  /*  50% {*/
+  /*    transform: translateX(-33.333%);*/
+  /*  }*/
+  /*  95% {*/
+  /*    transform: translateX(-33.333%);*/
+  /*  }*/
+
+  /*  100% {*/
+  /*    transform: translateX(-66.666%);*/
+  /*  }*/
+  /*}*/
 
   #SECTION2 .slider {
     display: flex;
     height: 100%;
   }
 
-  .slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 33.54px;
-    height: 80px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    cursor: pointer;
-    z-index: 10;
-  }
 
-  .slider-arrow.left {
-    left: -220px;
-    background-image: url("./ladi/slider-arrow-2.png");
-  }
 
-  .slider-arrow.right {
-    right: -220px;
-    background-image: url("./ladi/slider-arrow.png");
-  }
+  /*.slider-arrow.left {*/
+  /*  left: -220px;*/
+  /*  background-image: url("./ladi/slider-arrow-2.png");*/
+  /*}*/
+
+  /*.slider-arrow.right {*/
+  /*  right: -220px;*/
+  /*  background-image: url("./ladi/slider-arrow.png");*/
+  /*}*/
 
 
   .swirl-card-container {
@@ -10484,9 +10512,10 @@
   }
 
   .news-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: #e7252b;
+    line-height: 1.6;
+    font-weight: bold;
+    font-size: 32px;
+    color: rgb(0, 0, 0);
   }
 
   .news-title-underline {
@@ -10516,7 +10545,7 @@
     display: flex;
     flex-direction: column;
     flex: 0 0 31%;
-    min-width: 350px;
+    min-width: 394px;
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -10568,6 +10597,10 @@
     font-size: 13px;
     color: #888;
     margin-top: 15px;
+  }
+
+  .news-slider-arrow {
+    display: none;
   }
 
   #fixed-register-button {
@@ -10716,6 +10749,223 @@
     left: 1230px !important;
   }
 
+  #fixed-mobile-cta-wrapper {
+    display: none;
+  }
+
+
+  /* Banner slide responsive */
+  @media (max-width: 767px) {
+    .slider {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      animation: slide-with-pauses 30s infinite;
+    }
+
+    @keyframes slide-with-pauses {
+      0% {
+        transform: translateX(0%);
+      }
+      45% {
+        transform: translateX(0%);
+      }
+
+      50% {
+        transform: translateX(-33.333%);
+      }
+      95% {
+        transform: translateX(-33.333%);
+      }
+
+      100% {
+        transform: translateX(-66.666%);
+      }
+    }
+
+    .slide-gif {
+      background-image: url('./ladi/vay4buocmb.gif');
+    }
+
+    .slide-static {
+      background-image: url('./ladi/1-20240318105903-ybtkr.png');
+    }
+
+    .slide.slide-gif {
+      background-size: 420px 628px;
+      background-position: top -30px center;
+    }
+
+    .slider-arrow {
+      width: 15px;
+      height: 20px;
+    }
+    /*.slider-arrow.left {*/
+    /*  left: 10px;*/
+    /*  background-image: url("./ladi/slider-arrow-2.png");*/
+    /*}*/
+    /*.slider-arrow.right {*/
+    /*  right: 10px;*/
+    /*  background-image: url("./ladi/slider-arrow.png");*/
+    /*}*/
+
+    .slider-arrow {
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      width: 15px;
+      height: 30px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    #fixed-register-button {
+      display: none;
+    }
+
+
+
+    .news-card {
+      min-width: 420px;
+    }
+
+    .news-slider-arrow {
+      display: block; /* Hiện mũi tên lên */
+      position: absolute;
+      top: 55%;
+      transform: translateY(-50%);
+      width: 25px; /* Kích thước nhỏ cho mobile */
+      height: 25px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-image: url("data:image/svg+xml;utf8, %3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22rgba(244%2C%2064%2C%2037%2C%201)%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M7.00015%200.585938L18.4144%2012.0002L7.00015%2023.4144L5.58594%2022.0002L15.5859%2012.0002L5.58594%202.00015L7.00015%200.585938Z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+      cursor: pointer;
+      z-index: 10;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    .news-slider-arrow:hover {
+      opacity: 1;
+    }
+
+    .news-arrow-left {
+      left: 5px; /* Vị trí bên trong màn hình mobile */
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .news-arrow-right {
+      right: 5px; /* Vị trí bên trong màn hình mobile */
+    }
+
+    #fixed-mobile-cta-wrapper {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9990;
+      background-color: #ffffff;
+      padding: 10px 15px;
+      padding-bottom: 15px;
+      border-top: 5px solid #ffffff;
+      /*box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);*/
+    }
+
+    #fixed-mobile-cta {
+      width: 100%;
+      height: 50px;
+      background-color: rgb(231, 37, 43);
+      color: white;
+      font-size: 18px;
+      /*font-weight: bold;*/
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #customer-counter-wrapper {
+      position: absolute;
+      z-index: 10;
+      padding: 3px;
+      border-radius: 100px;
+      background: linear-gradient(to right, #CC002E, #EC1848, #9A268F);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      left: 15px;
+      top: 700px;
+    }
+
+    #customer-counter-inner {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background-color: #fff;
+      padding: 12px 17px;
+      border-radius: inherit;
+      width: 194.79px;
+      height: 70px;
+    }
+
+    .counter-icon {
+      width: 52.15px;
+      height: 52.15px;
+      flex-shrink: 0;
+    }
+
+    .counter-text-group {
+      text-align: left;
+    }
+
+    .scrolling-counter {
+      display: flex;
+      height: 30px;
+      line-height: 30px;
+      font-size: 20px;
+      overflow: hidden;
+      --gradient-text: linear-gradient(to right, #CC002E, #EC1848, #9A268F);
+    }
+    .digit-roller {
+      display: inline-block;
+      transition: transform 2.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+
+    .digit-roller span {
+      display: block;
+      height: 30px;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .digit-separator {
+      display: inline-block;
+      padding: 0 2px;
+      line-height: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .counter-text {
+      font-size: 8.78px;
+      color: #333;
+      line-height: 1.4;
+      max-width: 200px;
+      margin-top: 4px;
+    }
+
+  }
 
 </style>
 <script>
@@ -10868,6 +11118,76 @@
       }, { threshold: 0.8 });
 
       observer.observe(counterWidget);
+    }
+
+    const newsSlider = document.querySelector('.news-slider-container');
+    const leftArrow = document.querySelector('.news-arrow-left');
+    const rightArrow = document.querySelector('.news-arrow-right');
+
+    if (newsSlider && leftArrow && rightArrow) {
+
+      let autoScrollInterval;
+
+      const getScrollAmount = () => {
+        const firstCard = newsSlider.querySelector('.news-card');
+        if (firstCard) {
+          const cardStyle = window.getComputedStyle(firstCard);
+          const cardMargin = 30;
+          return firstCard.offsetWidth + cardMargin;
+        }
+        return 480;
+      };
+
+
+      const startAutoScroll = () => {
+        if (window.innerWidth > 767) return;
+        clearInterval(autoScrollInterval);
+
+        autoScrollInterval = setInterval(() => {
+          if (newsSlider.scrollLeft + newsSlider.clientWidth >= newsSlider.scrollWidth - 1) {
+            newsSlider.scrollTo({
+              left: 0,
+              behavior: 'smooth'
+            });
+          } else {
+            newsSlider.scrollBy({
+              left: getScrollAmount(),
+              behavior: 'smooth'
+            });
+          }
+        }, 4000);
+      };
+
+
+      const resetAutoScrollTimer = () => {
+        clearInterval(autoScrollInterval);
+        setTimeout(startAutoScroll, 5000);
+      };
+
+      rightArrow.addEventListener('click', function() {
+        newsSlider.scrollBy({
+          left: getScrollAmount(),
+          behavior: 'smooth'
+        });
+        resetAutoScrollTimer();
+      });
+
+      leftArrow.addEventListener('click', function() {
+        newsSlider.scrollBy({
+          left: -getScrollAmount(),
+          behavior: 'smooth'
+        });
+        resetAutoScrollTimer();
+      });
+
+      startAutoScroll();
+      window.addEventListener('resize', () => {
+        if (window.innerWidth <= 767) {
+          startAutoScroll();
+        } else {
+          clearInterval(autoScrollInterval);
+        }
+      });
     }
 
   });
