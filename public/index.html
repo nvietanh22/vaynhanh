@@ -10567,7 +10567,7 @@
   .news-slider-content {
     display: flex;
     flex-wrap: nowrap;
-    gap: 30px;
+    gap: 10px;
     padding-bottom: 20px;
   }
 
@@ -11051,7 +11051,7 @@
     const counterContainer = document.getElementById('scrolling-counter');
 
     if (counterWidget && counterContainer) {
-      const startDate = new Date('2025-06-26T00:00:00Z');
+      const startDate = new Date('2025-06-26T00:00:00+07:00');
       const startValue = 396750;
       const incrementPerDay = 30810;
       const maxValue = 1000000;
@@ -11059,10 +11059,10 @@
       const calculateCurrentValue = () => {
         const now = new Date();
         const elapsedTime = now.getTime() - startDate.getTime();
-        const elapsedDays = elapsedTime / (1000 * 60 * 60 * 24);
+        const elapsedDays = Math.floor(elapsedTime / (1000 * 60 * 60 * 24));
         const addedValue = elapsedDays * incrementPerDay;
         let currentValue = startValue + addedValue;
-        return Math.floor(Math.min(currentValue, maxValue));
+        return Math.min(currentValue, maxValue);
       };
 
       const finalValue = calculateCurrentValue();
