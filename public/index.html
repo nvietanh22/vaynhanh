@@ -10839,7 +10839,7 @@
 
     #fixed-mobile-cta-wrapper {
       display: block;
-      /*position: fixed;*/
+      position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
@@ -11218,6 +11218,31 @@
       });
     });
 
+    function adjustBodyPadding() {
+      // Chỉ thực thi trên màn hình mobile
+      if (window.innerWidth <= 767) {
+        const ctaWrapper = document.getElementById('fixed-mobile-cta-wrapper');
+        const body = document.body;
+
+        if (ctaWrapper && body) {
+          // Lấy chiều cao thực tế của khối nút CTA (bao gồm cả padding của nó)
+          const ctaHeight = ctaWrapper.offsetHeight;
+
+          // Thêm padding-bottom cho thẻ body đúng bằng chiều cao của nút CTA
+          // Điều này sẽ tạo ra một khoảng trống ở cuối trang
+          body.style.paddingBottom = ctaHeight + 'px';
+        }
+      } else {
+        // Nếu không phải mobile, đảm bảo không có padding
+        document.body.style.paddingBottom = '0px';
+      }
+    }
+
+    // Chạy hàm khi trang tải xong
+    adjustBodyPadding();
+
+    // Chạy lại hàm khi kích thước cửa sổ thay đổi (ví dụ: xoay điện thoại)
+    window.addEventListener('resize', adjustBodyPadding);
   });
 </script>
 </body>
